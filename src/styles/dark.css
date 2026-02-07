@@ -3,6 +3,11 @@
     src: url("/website/assets/fonts/RobotoMono.ttf") format('truetype');
 }
 
+* {
+    font-family: 'RobotoMono', monospace;
+}
+
+
 html, body {
     background: url("/website/assets/images/misc/pfp.jpg") no-repeat center/cover;
 }
