@@ -1,0 +1,50 @@
+---
+const {
+  icon = "/assets/images/favicon.svg",
+  url = "",
+  color = "255,255,255"
+} = Astro.props;
+---
+
+<style>
+img.icon {
+  width: 25px;
+  height: 25px;
+  filter: saturate(0%);
+  margin-top: 0px;
+  transition: filter 0.3s, margin-top 0.3s;
+  cursor: pointer;
+}
+</style>
+
+<script>
+function onMouseEnterEffect(image: HTMLImageElement) {
+  image.style.filter = `saturate(100%) drop-shadow(0 0 0.75rem rgb(${image.dataset.color}))`;
+  image.style.marginTop = "-2px";
+}
+
+function onMouseLeaveEffect(image: HTMLImageElement) {
+  image.style.filter = "saturate(0%)";
+  image.style.marginTop = "0px";
+}
+
+function onClick(url: string) {
+  if (!url) return;
+  window.open(url);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    const imgs = document.querySelectorAll<HTMLImageElement>("img.icon");
+    imgs.forEach((img) => {
+      const url = img.dataset.url ?? "";
+
+      img.addEventListener("pointerenter", () => onMouseEnterEffect(img));
+      img.addEventListener("pointerleave", () => onMouseLeaveEffect(img));
+      img.addEventListener("click", () => onClick(url));
+    });
+  });
+});
+</script>
+
+<img src={icon} alt="icon" class="icon" data-url={url} data-color={color} />

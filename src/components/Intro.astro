@@ -1,0 +1,47 @@
+---
+import SocialNetwork from './SocialNetwork.astro';
+import Website from './Website.astro';
+import CenteredDivision from './CenteredDivision.astro';
+---
+
+<CenteredDivision>
+
+    <button id="click-to-proceed">Click to proceed...</button>
+    <div id="website" hidden="true">
+        <Website/>
+    </div>
+
+    <audio id="audioPlayer">
+      <source src="/assets/sounds/song.mp3" type="audio/mp3" />
+    </audio>
+
+</CenteredDivision>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const clickToProceed = document.getElementById("click-to-proceed");
+        const website = document.getElementById("website");
+        clickToProceed?.addEventListener("click", () => {
+            clickToProceed.remove();
+            const audioPlayer = document.getElementById('audioPlayer');
+            if (audioPlayer instanceof HTMLAudioElement) {
+                audioPlayer.loop = true;
+                audioPlayer.volume = 0.05;
+                audioPlayer.play();
+                let i = audioPlayer.volume;
+                const interval = setInterval(() => {
+                    if (i < 0.98) {
+                        i += 0.03;
+                        audioPlayer.volume = i; 
+                    } else {
+                        clearInterval(interval); 
+                    }
+                }, 100); 
+            }
+
+            if (website) {
+                website.hidden = false;
+            }
+        });
+    });
+</script>
