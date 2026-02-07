@@ -2,6 +2,7 @@
 import SocialNetwork from './SocialNetwork.astro';
 import Website from './Website.astro';
 import CenteredDivision from './CenteredDivision.astro';
+import { BASE } from '../utils/base.astro';
 ---
 
 <CenteredDivision>
@@ -12,7 +13,7 @@ import CenteredDivision from './CenteredDivision.astro';
     </div>
 
     <audio id="audioPlayer">
-      <source src="/assets/sounds/song.mp3" type="audio/mp3" />
+      <source src={`${BASE}/assets/sounds/song.mp3`} type="audio/mp3" />
     </audio>
 
 </CenteredDivision>

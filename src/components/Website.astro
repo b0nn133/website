@@ -1,6 +1,7 @@
 ---
 import SocialNetwork from './SocialNetwork.astro';
 import CenteredDivision from './CenteredDivision.astro';
+import { BASE } from '../utils/base.astro';
 ---
 
 <CenteredDivision>
@@ -11,8 +12,8 @@ import CenteredDivision from './CenteredDivision.astro';
     <p>A Linux & FOSS enthusiast</p>
 
     <div class="social-grid">
-            <SocialNetwork icon="/assets/images/logotypes/Telegram.svg" url="https://t.me/openrced" color="0, 157, 255"/>
-            <SocialNetwork icon="/assets/images/logotypes/GitHub.png" url="https://github.com/b0nn133" color="255,255,255"/>
+            <SocialNetwork icon={`${BASE}/assets/images/logotypes/Telegram.svg`} url="https://t.me/openrced" color="0, 157, 255"/>
+            <SocialNetwork icon={`${BASE}/assets/images/logotypes/GitHub.svg`} url="https://github.com/b0nn133" color="255,255,255"/>
     </div>
 
     <p class="attribution">Jéja - Bad Habit (ft. Zaug) - Phonk Version [NCS Release]</p>
