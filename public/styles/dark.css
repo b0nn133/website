@@ -1,20 +1,10 @@
 @font-face {
     font-family: 'RobotoMono'; 
-    src: url('/assets/fonts/RobotoMono.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    src: url("../assets/fonts/RobotoMono.ttf") format('truetype');
 }
 
 html, body {
-    background: url("/assets/images/misc/pfp.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    font-family: 'RobotoMono', monospace;
-    margin: 0; 
-    height: 100%; 
-    overflow: hidden;
-    color: white;
+    background: url("../assets/images/misc/pfp.jpg") no-repeat center/cover;
 }
 
 .pfp {
